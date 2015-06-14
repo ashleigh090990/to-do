@@ -15,19 +15,23 @@
 		<div>
 
 			 <div>
-			 	<img src="http://media1.onsugar.com/files/2012/11/45/2/192/1922441/64b7fc65554d9862_shutterstock_94823308.preview.jpg">
+			 	<img src="http://www.qooljan.com/wordpress/wp-content/themes/qooljan2/img/icon_ambassador01.png">
 				<h1>toDoList</h1>
 
 				<form>
-					<input ng-model="ctrl.newTask" type="text" placeholder="Add toDo">
-					<button id="button" ng-click="ctrl.addTask()">Add toDo</button>
+					<input id="newTaskId" ng-model="ctrl.newTask" type="text" placeholder="Add toDo">
+					<button id="addTaskId" ng-click="ctrl.addTask()">Add toDo</button>
 				</form>
 
-				<ul>
+				<ul id="eachTaskId">
 					<li ng-repeat="eachTask in ctrl.listTasks">
 						{{ eachTask.task }}
 					</li>
 				</ul>
+
+				<div id ="taskCount">
+					You have {{ ctrl.listTasks.length }} toDos!
+				</div>
 
 		</div>
 	</body>
