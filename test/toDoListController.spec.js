@@ -15,7 +15,7 @@ describe('ToDoListController', function() {
 	it('can add an item and display that item', function() {
 		ctrl.newTask = "Feed Larry the lizard";
 		ctrl.addTask();
-		expect(ctrl.listTasks).toEqual([{ 'name': 'Feed Larry the lizard'}]);
+		expect(ctrl.listTasks).toEqual([{ 'task': 'Feed Larry the lizard'}]);
 	});
 
 	it('can display more than one item in the to do list', function() {
@@ -27,7 +27,7 @@ describe('ToDoListController', function() {
 		ctrl.addTask();
 		ctrl.newTask = "Take over the world";
 		ctrl.addTask();
-		expect(ctrl.listTasks).toEqual([{ 'name': 'Feed Larry the lizard'}, { 'name': 'Marry off Larry to a rich evil genius'}, { 'name': "Raise Larry's evil lizard children"}, { 'name': 'Take over the world'}]);
+		expect(ctrl.listTasks).toEqual([{ 'task': 'Feed Larry the lizard'}, { 'task': 'Marry off Larry to a rich evil genius'}, { 'task': "Raise Larry's evil lizard children"}, { 'task': 'Take over the world'}]);
 	});
 
 });
