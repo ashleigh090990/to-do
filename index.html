@@ -27,7 +27,7 @@
 
 				<div class="taskList">
 					<ul>
-						<li ng-repeat="eachTask in ctrl.listTasks">
+						<li class="eachTaskClass" id="eachTaskId" ng-repeat="eachTask in ctrl.listTasks">
 							{{ eachTask.task }}
 						</li>
 					</ul>
@@ -41,9 +41,16 @@
 			<img class="toDoImg" src="http://www.qooljan.com/wordpress/wp-content/themes/qooljan2/img/icon_ambassador01.png">
 
 			<script>
-				$(window).load(function(){ 
-					$(h1).effect("shake");
-				});
+      $(document).ready( function(){
+			  $('#eachTaskId').hover(
+			    function(){
+        		$(this).animate({'fontSize': '30px'},400);
+    			},
+    			function(){
+    		    $(this).animate({'fontSize': '20px'},400);
+    		  };
+    		});
+    	});
 			</script>
 
 		</div>
