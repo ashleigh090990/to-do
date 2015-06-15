@@ -15,7 +15,7 @@ describe('ToDoListController', function() {
 	it('can add an item and display that item', function() {
 		ctrl.newTask = "Feed Larry the lizard";
 		ctrl.addTask();
-		expect(ctrl.listTasks).toEqual([{ 'task': 'Feed Larry the lizard'}]);
+		expect(ctrl.listTasks).toEqual([{ 'task': 'Feed Larry the lizard', 'isComplete': false}]);
 	});
 
 	it('can display more than one item in the to do list', function() {
@@ -27,7 +27,13 @@ describe('ToDoListController', function() {
 		ctrl.addTask();
 		ctrl.newTask = "Take over the world";
 		ctrl.addTask();
-		expect(ctrl.listTasks).toEqual([{ 'task': 'Feed Larry the lizard'}, { 'task': 'Marry off Larry to a rich evil genius'}, { 'task': "Raise Larry's evil lizard children"}, { 'task': 'Take over the world'}]);
+		expect(ctrl.listTasks).toEqual([{ 'task': 'Feed Larry the lizard', 'isComplete': false}, { 'task': 'Marry off Larry to a rich evil genius', 'isComplete': false}, { 'task': "Raise Larry's evil lizard children", 'isComplete': false}, { 'task': 'Take over the world', 'isComplete': false}]);
 	});
+
+	it('knows item is not complete', function(){
+			ctrl.newTask = "Feed Larry the lizard";
+			ctrl.addTask();
+      expect(ctrl.listTasks[0].isComplete).toEqual(false);
+    });
 
 });
