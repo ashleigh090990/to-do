@@ -36,12 +36,4 @@ describe('ToDoListController', function() {
       expect(ctrl.listTasks[0].isComplete).toEqual(false);
     });
 
-	it("cannot delete an item that's not been completed", function(){
-			ctrl.newTask = "Feed Larry the lizard";
-			ctrl.addTask();
-			ctrl.isComplete("Feed Larry the lizard");
-      ctrl.deleteCompleted();
-      expect(ctrl.itemList).toEqual([{'name': 'Buy milk', 'isCompleted': false}]);
-  });
-
 });

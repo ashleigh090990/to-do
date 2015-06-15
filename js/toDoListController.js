@@ -8,12 +8,8 @@ toDoList.controller('ToDoListController', [function(){
 		self.newTask = '';
 	};
 
-	self.isComplete = function(taskName) {
-		if (self.listTasks.taskName === taskName) {
+	self.isComplete = function() {
 			self.listTasks.isComplete = true;
-		} else {
-			self.listTasks.isComplete = false;
-		};
 	};
 
 }]);
