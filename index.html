@@ -29,6 +29,7 @@
 					<ul>
 						<li class="eachTaskClass" id="eachTaskId" ng-repeat="eachTask in ctrl.listTasks">
 							{{ eachTask.task }}
+							<input ng-model="eachTask.isComplete" id="complete" type="checkbox">
 						</li>
 					</ul>
 

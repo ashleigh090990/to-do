@@ -37,8 +37,12 @@ describe('When tasks are added', function() {
     expect(element(by.id('taskCount')).getText()).toEqual('You have 2 toDos!');
   });
 
+  it('can mark an item as completed', function() {
+    expect(browser.isElementPresent(by.id('complete'))).toBe(true);
+  });
+
   // it('hello', function() {
-  //   element(by.repeater('eachTask in ctrl.listTasks')).toEqual('Walk Larry the lizard');
+  //   element(by.repeater('eachTask in ctrl.listTasks')).getAttribute(value).toContain('Walk Larry the lizard');
   // });
 
 });
