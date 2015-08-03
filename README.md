@@ -1,10 +1,14 @@
-# Todo Challenge
+# To Do List
 
-## Challenge
+![screenshot of page](/public/screenshot of app page.png)
+
+We want to build a simple to do list, where we can add tasks to do and delete them once they're done.
+
+## Specification
 
 Build a Todo list as a mini front-end application. You don't have to use a database, the front-end is more important - you can use an appropriate data structure stored somewhere in your JavaScript (this time only!)
 
-Core user stories:
+## User Stories
 
 ```
 As a forgetful person
@@ -18,11 +22,7 @@ So that I have more time to think about other things
 As a person who actually gets stuff done
 I want to mark my tasks as done
 So that I don't do them twice
-```
 
-Here are some other user stories you may choose to implement:
-
-```
 As a person with a lot of tasks
 I want to be able to filter my tasks by "All", "Active", "Complete"
 So that I only see the relevant tasks
@@ -36,30 +36,60 @@ I want to be able to clear my completed tasks
 So I never see them again
 ```
 
-## Unit Tests with Karma
+## Tech Used
 
-	* initilizes with an an empty task list
+Written in Javascript and AngularJS, and tested in Jasmine and Protractor.
 
-	* can add an item and display that item
+## Running the App Locally
 
-	* can display more than one item in the to do list
-	
-	* knows item is not complete
+Navigate to any folder and in the command line:
 
-	* cannot delete an item that's not been completed
+```
+$ git clone https://github.com/ashleigh090990/to-do
 
-## Feature Tests with Protractor
+$ cd to-do
+
+$ npm install
+
+$ bower install
+```
+
+You may have to install node and bower before installing the dependencies.
+
+Update Selenium Webserver with the following command:
+
+```
+$ ./node_modules/webdriver-manager/bin/webdriver-manager update
+```
+
+Once it has been updated, run it with:
+
+```
+$ ./node_modules/webdriver-manager/bin/webdriver-manager start
+```
+
+While Selenium is running, open another tab in the same directory and run HTTP-Server:
+
+```
+$ ./node_modules/http-server/bin/http-server ./
+```
+
+Then in Google Chrome, navigate to "http://localhost:8080/" and the application should load!
 
 
+## Running the Tests
 
+*Unit Tests*
 
+To run the unit tests from the command line
+```
+$ ./node_modules/karma/bin/karma start test/karma.conf.js
+```
 
+*Feature Tests*
 
-## CI
+To run the feature tests, make sure that Selenium Webserver and HTTP-Server are running (detailed above) and in another terminal tab (also in the same directory) run:
 
-Read the `.travis.yml` if any of the steps below don't make sense! 
-
-* Make sure you have set up `npm test` in your `package.json` so that it runs your Karma tests
-* Make sure you have your Protractor config file at `e2e/conf.js`
-
-Good luck!
+```
+"$ ./node_modules/protractor/bin/protractor test/e2e/conf.js"
+```
