@@ -23,13 +23,16 @@ As a person who actually gets stuff done
 I want to mark my tasks as done
 So that I don't do them twice
 
-As a person with a lot of tasks
-I want to be able to filter my tasks by "All", "Active", "Complete"
-So that I only see the relevant tasks
-
 As a person who doesn't like counting by hand
 I want to see a total number of tasks
 So that I don't have to count
+
+
+Still to do:
+
+As a person with a lot of tasks
+I want to be able to filter my tasks by "All", "Active", "Complete"
+So that I only see the relevant tasks
 
 As someone who has done lots of stuff
 I want to be able to clear my completed tasks
