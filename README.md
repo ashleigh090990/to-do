@@ -94,5 +94,5 @@ $ ./node_modules/karma/bin/karma start test/karma.conf.js
 To run the feature tests, make sure that Selenium Webserver and HTTP-Server are running (detailed above) and in another terminal tab (also in the same directory) run:
 
 ```
-"$ ./node_modules/protractor/bin/protractor test/e2e/conf.js"
+$ ./node_modules/protractor/bin/protractor test/e2e/conf.js
 ```
