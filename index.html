@@ -22,12 +22,16 @@
           <button class="button" id="addTaskId" ng-click="ctrl.addTask()">Add toDo</button>
         </form>
 
-        <div class="taskList">
+        <div class="taskList" id="taskList">
           <table>
-            <tr ng-repeat="eachTask in ctrl.listTasks">
+            <tr ng-repeat="eachTask in ctrl.listTasks" ng-hide="showCompletedTasks">
               <td class="eachTaskClass" id="eachTaskId">{{ eachTask.task }}</td>
               <td class="eachCheckboxRow"><input class="checkbox" ng-model="eachTask.isChecked" id="checked" type="checkbox"></input></td>
             </tr>
+          </table>
+          <table ng-repeat="eachCompletedTask in ctrl.completedTasks" ng-show="showCompletedTasks">
+            <td class="eachTaskClass" id="eachTaskId">{{ eachCompletedTask.task }}</td>
+            <td class="eachCheckboxRow"><input class="checkbox" ng-model="eachCompletedTask.isChecked" id="checked" type="checkbox"></input></td>
           </table>
 
           <span class="taskCount" id="taskCount">
@@ -36,6 +40,8 @@
         </div>
         <span>
           <button class="markAsComplete button" id="checkedItemsAreComplete" ng-click="ctrl.markCheckedAsComplete()">Mark as Complete</button>
+          <button class="button" id="viewCompletedTasks" ng-click="showCompletedTasks = !showCompletedTasks" ng-hide="showCompletedTasks">Completed toDos</button>
+          <button class="button" id="viewCompletedTasks" ng-click="showCompletedTasks = !showCompletedTasks" ng-show="showCompletedTasks">Still toDos</button>
           <button class="button" id="deleteCheckedItems" ng-click="ctrl.clearChecked()">Delete</button>
         </span>
       </div>

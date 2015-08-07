@@ -50,6 +50,16 @@ describe('When tasks are added', function() {
     expect(element(by.id('taskCount')).getText()).toEqual('You have 0 toDos!');
   });
 
+  it('shows filters the list of incomplete and completed tasks', function() {
+    element(by.id('checked')).click();
+    element(by.id('checkedItemsAreComplete')).click();
+    element(by.id('newTaskId')).sendKeys('Walk Gerty the lizard');
+    element(by.id('addTaskId')).click();
+    element(by.id('viewCompletedTasks')).click();
+    expect(element(by.id('taskList')).getText()).toContain('Walk Larry the lizard');
+    expect(element(by.id('taskList')).getText()).toNotContain('Walk Gerty the lizard');
+  });
+
   // it('hello', function() {
   //   element(by.repeater('eachTask in ctrl.listTasks')).getAttribute(value).toContain('Walk Larry the lizard');
   // });
