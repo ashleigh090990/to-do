@@ -23,17 +23,21 @@
         </form>
 
         <div class="taskList">
-          <ul>
-            <li class="eachTaskClass" id="eachTaskId" ng-repeat="eachTask in ctrl.listTasks">
-              {{ eachTask.task }}
-              <input ng-model="eachTask.isComplete" id="complete" type="checkbox">
-            </li>
-          </ul>
+          <table>
+            <tr ng-repeat="eachTask in ctrl.listTasks">
+              <td class="eachTaskClass" id="eachTaskId">{{ eachTask.task }}</td>
+              <td class="eachCheckboxRow"><input class="checkbox" ng-model="eachTask.isChecked" id="checked" type="checkbox"></input></td>
+            </tr>
+          </table>
 
-          <span class="taskCount" id ="taskCount">
+          <span class="taskCount" id="taskCount">
             You have {{ ctrl.listTasks.length }} toDos!
           </span>
         </div>
+        <span>
+          <button class="markAsComplete button" id="checkedItemsAreComplete">Mark as Complete</button>
+          <button class="button" id="deleteCheckedItems" ng-click="ctrl.clearChecked()">Delete</button>
+        </span>
       </div>
       
       <script src="bower_components/angular/angular.js"></script>

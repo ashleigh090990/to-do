@@ -111,8 +111,11 @@ h1 {
   width: 60%;
   height: 300px;
   margin-top: 2%;
+  margin-bottom: 2%;
   margin-left: 20%;
   margin-right: 20%;
+  padding-left: 2%;
+  padding-right: 3%;
   font-family: 'Lobster', cursive;
   font-size: 20px;
   color: #576C9E;
@@ -121,16 +124,28 @@ h1 {
   overflow-y: scroll;
 }
 
-ul {
+table {
   position: relative;
   top: 20px;
-  left: 20px;
+  width: 90%;
 }
 
 .taskCount {
   position: relative;
   top: 20px;
   left: 20px;
+}
+
+.eachTaskClass {
+  width: 90%;
+}
+
+.eachCheckboxRow {
+  width: 10%;
+}
+
+.markAsComplete {
+  margin-left: 4%;
 }
 
 @media (max-width: 1020px) {
@@ -150,10 +165,6 @@ ul {
     margin-top: 2%;
     margin-left: 10%;
     margin-right: 10%;
-  }
-
-  .inputBox {
-
   }
 
   .taskList {

@@ -4,17 +4,23 @@ toDoList.controller('ToDoListController', [function(){
   self.listTasks = [];
 
   self.addTask = function() {
-    self.listTasks.push({ 'task': self.newTask, 'isComplete': false });
+    self.listTasks.push({ 'task': self.newTask, 'isChecked': false , 'isComplete': false});
     self.newTask = '';
   };
 
-  self.isComplete = function() {
-    self.listTasks.isComplete = true;
+  self.isChecked = function() {
+    self.listTasks.isChecked = true;
   };
 
-  self.clearCompleted = function(){
-    self.listTasks = self.listTasks.filter(function(item){
-      return !item.isComplete;
+  self.clearChecked = function(){
+    self.listTasks = self.listTasks.filter(function(task){
+      return !task.isChecked;
+    });
+  };
+
+  self.markCheckedAsComplete = function(){
+    self.listTasks = self.listTasks.filter(function(task){
+      return !task.isChecked;
     });
   };
 
