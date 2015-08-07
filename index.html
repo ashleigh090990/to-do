@@ -22,22 +22,25 @@
           <button class="button" id="addTaskId" ng-click="ctrl.addTask()">Add toDo</button>
         </form>
 
-        <button class="viewTaskListButtons" id="viewCompletedTasks" ng-click="showCompletedTasks = !showCompletedTasks">Still toDos</button>
-        <button class="viewTaskListButtons" id="viewCompletedTasks" ng-click="showCompletedTasks = !showCompletedTasks">Completed toDos</button>
+        <button class="viewTaskListButtons" id="viewIncompleteTasks" ng-init="tab = tab === 'incompleteTasks' ? null: 'incompleteTasks'" ng-click="tab = 'incompleteTasks'" ng-class="{true:'active', false:'inactive'}[tab == 'incompleteTasks']">toDos</button>
+        <button class="viewTaskListButtons" id="viewCompletedTasks" ng-click="tab = 'completedTasks'" ng-class="{true:'active', false:'inactive'}[tab == 'completedTasks']">toDids</button> 
         <div class="taskList" id="taskList">
-          <table>
-            <tr ng-repeat="eachTask in ctrl.listTasks" ng-hide="showCompletedTasks">
+          <table ng-repeat="eachTask in ctrl.listTasks" ng-show="tab === 'incompleteTasks'">
+            <tr>
               <td class="eachTaskClass" id="eachTaskId">{{ eachTask.task }}</td>
               <td class="eachCheckboxRow"><input class="checkbox" ng-model="eachTask.isChecked" id="checked" type="checkbox"></input></td>
             </tr>
           </table>
-          <table ng-repeat="eachCompletedTask in ctrl.completedTasks" ng-show="showCompletedTasks">
+          <table ng-repeat="eachCompletedTask in ctrl.completedTasks" ng-show="tab === 'completedTasks'">
             <td class="eachTaskClass" id="eachTaskId">{{ eachCompletedTask.task }}</td>
             <td class="eachCheckboxRow"><input class="checkbox" ng-model="eachCompletedTask.isChecked" id="checked" type="checkbox"></input></td>
           </table>
 
-          <span class="taskCount" id="taskCount" ng-hide="showCompletedTasks">
+          <span class="taskCount" id="taskCount" ng-show="tab === 'incompleteTasks'">
             You have {{ ctrl.listTasks.length }} toDos!
+          </span>
+          <span class="taskCount" id="taskCount" ng-show="tab === 'completedTasks'">
+            You have completed {{ ctrl.completedTasks.length }} toDos!
           </span>
         </div>
         <span>
@@ -51,6 +54,23 @@
       <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
       <script src="js/app.js"></script>
       <script src="js/toDoListController.js"></script>
+
+      <script type="text/javascript">
+        $(function(){
+          $('#viewIncompleteTasks').click();
+        });
+  
+        $("#viewCompletedTasks").click(function () {
+          $( "#viewIncompleteTasks").addClass("activeButton")
+          $( "#viewCompletedTasks").removeClass("activeButton")
+        });
+      
+        $("#viewIncompleteTasks").click(function () {
+          $( "#viewCompletedTasks").addClass("activeButton")
+          $( "#viewIncompleteTasks").removeClass("activeButton")
+        });
+      
+      </script>
 
     </div>
   </body>

@@ -3,6 +3,8 @@ toDoList.controller('ToDoListController', [function(){
 
   self.completedTasks = [];
   self.listTasks = [];
+  self.showIncompleteTasks = true;
+  self.showCompletedTasks = false;
 
   self.addTask = function() {
     self.listTasks.push({ 'task': self.newTask, 'isChecked': false});
@@ -28,5 +30,13 @@ toDoList.controller('ToDoListController', [function(){
       task.isChecked = false;
     });
   };
+
+  self.showCompletedTasks = function(){
+    self.showCompletedTasks = true;
+  }
+
+  self.showIncompleteTasks = function(){
+    self.showCompletedTasks = false;
+  }
 
 }]);
