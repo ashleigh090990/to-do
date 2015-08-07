@@ -59,12 +59,12 @@ describe('ToDoListController', function() {
     expect(ctrl.listTasks).toEqual([{'task': 'Feed Larry the lizard', 'isChecked': false}]);
   });
 
-  // it('can mark a checked item as complete', function(){
-  //   ctrl.newTask = "Feed Larry the lizard";
-  //   ctrl.addTask();
-  //   ctrl.listTasks[0].isChecked = true;
-  //   ctrl.clearChecked();
-  //   expect(ctrl.listTasks).toEqual([]);
-  // });
+  it('can mark a checked item as complete', function(){
+    ctrl.newTask = "Feed Larry the lizard";
+    ctrl.addTask();
+    ctrl.listTasks[0].isChecked = true;
+    ctrl.markCheckedAsComplete();
+    expect(ctrl.completedTasks).toEqual([{ 'task': 'Feed Larry the lizard', 'isChecked': false}]);
+  });
 
 });

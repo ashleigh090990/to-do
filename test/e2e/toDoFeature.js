@@ -47,6 +47,7 @@ describe('When tasks are added', function() {
   it('can mark a checked item as complete', function() {
     element(by.id('checked')).click();
     element(by.id('checkedItemsAreComplete')).click();
+    expect(element(by.id('taskCount')).getText()).toEqual('You have 0 toDos!');
   });
 
   // it('hello', function() {
