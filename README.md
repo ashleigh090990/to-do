@@ -4,6 +4,7 @@
 *View on web browser*
 
 ![screenshot of page](/public/Screenshot of app page 2.png)
+
 *View on mobile*
 
 We want to build a simple to do list, where we can add tasks to do and delete them once they're done.
