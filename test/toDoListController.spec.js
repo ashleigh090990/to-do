@@ -67,4 +67,12 @@ describe('ToDoListController', function() {
     expect(ctrl.completedTasks).toEqual([{ 'task': 'Feed Larry the lizard', 'isChecked': false}]);
   });
 
+  it('can delete a completed task', function() {
+    ctrl.newTask = "Feed Larry the lizard";
+    ctrl.addTask();
+    ctrl.listTasks[0].isChecked();
+    ctrl.markCheckedAsComplete();
+    ctrl.listTasks[0].isChecked();
+  });
+
 });

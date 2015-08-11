@@ -60,6 +60,11 @@ describe('When tasks are added', function() {
     expect(element(by.id('taskList')).getText()).toNotContain('Walk Gerty the lizard');
   });
 
+
+
+  it('can delete completed tasks', function() {
+  });
+
   // it('hello', function() {
   //   element(by.repeater('eachTask in ctrl.listTasks')).getAttribute(value).toContain('Walk Larry the lizard');
   // });

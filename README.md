@@ -1,6 +1,7 @@
 # To Do List
 
 ![screenshot of page](/public/screenshot of app page.png)
+![screenshot of page](/public/screenshot of app page 2.png)
 
 We want to build a simple to do list, where we can add tasks to do and delete them once they're done.
 
