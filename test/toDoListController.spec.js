@@ -48,14 +48,14 @@ describe('ToDoListController', function() {
     ctrl.newTask = "Feed Larry the lizard";
     ctrl.addTask();
     ctrl.listTasks[0].isChecked = true;
-    ctrl.clearChecked();
+    ctrl.clearAllChecked();
     expect(ctrl.listTasks).toEqual([]);
   });
 
   it('cannot clear an active item', function(){
     ctrl.newTask = "Feed Larry the lizard";
     ctrl.addTask();
-    ctrl.clearChecked();
+    ctrl.clearAllChecked();
     expect(ctrl.listTasks).toEqual([{'task': 'Feed Larry the lizard', 'isChecked': false}]);
   });
 
@@ -70,9 +70,11 @@ describe('ToDoListController', function() {
   it('can delete a completed task', function() {
     ctrl.newTask = "Feed Larry the lizard";
     ctrl.addTask();
-    ctrl.listTasks[0].isChecked();
+    ctrl.listTasks[0].isChecked = true;
     ctrl.markCheckedAsComplete();
-    ctrl.listTasks[0].isChecked();
+    ctrl.completedTasks[0].isChecked = true;
+    ctrl.clearAllChecked();
+    expect(ctrl.completedTasks).toEqual([]);
   });
 
 });

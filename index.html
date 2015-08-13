@@ -3,8 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title>toDoList</title>
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="public/todostyle.css">
   </head>
@@ -36,41 +34,26 @@
             <td class="eachCheckboxRow"><input class="checkbox" ng-model="eachCompletedTask.isChecked" id="checked" type="checkbox"></input></td>
           </table>
 
-          <span class="taskCount" id="taskCount" ng-show="tab === 'incompleteTasks'">
+          <span class="taskCount" id="incompleteTaskCount" ng-show="tab === 'incompleteTasks'">
             You have {{ ctrl.listTasks.length }} toDos!
           </span>
-          <span class="taskCount" id="taskCount" ng-show="tab === 'completedTasks'">
+          <span class="taskCount" id="completeTaskCount" ng-show="tab === 'completedTasks'">
             You have completed {{ ctrl.completedTasks.length }} toDos!
           </span>
         </div>
         <span>
           <button class="markAsComplete button" id="checkedItemsAreComplete" ng-click="ctrl.markCheckedAsComplete()">Mark as Complete</button>
-          <button class="button" id="deleteCheckedItems" ng-click="ctrl.clearChecked()">Delete</button>
+          <button class="button" id="deleteCheckedItems" ng-click="ctrl.clearAllChecked()">Delete</button>
         </span>
       </div>
       
       <script src="bower_components/angular/angular.js"></script>
       <script src="bower_components/angular-resource/angular-resource.js"></script>
-      <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+      <script src="bower_components/jquery/dist/jquery.js"></script>
+      <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
       <script src="js/app.js"></script>
       <script src="js/toDoListController.js"></script>
-
-      <script type="text/javascript">
-        $(function(){
-          $('#viewIncompleteTasks').click();
-        });
-  
-        $("#viewCompletedTasks").click(function () {
-          $( "#viewIncompleteTasks").addClass("activeButton")
-          $( "#viewCompletedTasks").removeClass("activeButton")
-        });
-      
-        $("#viewIncompleteTasks").click(function () {
-          $( "#viewCompletedTasks").addClass("activeButton")
-          $( "#viewIncompleteTasks").removeClass("activeButton")
-        });
-      
-      </script>
+      <script type="text/javascript" src="js/jqueryStyle.js"></script>
 
     </div>
   </body>

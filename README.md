@@ -32,9 +32,6 @@ As a person who doesn't like counting by hand
 I want to see a total number of tasks
 So that I don't have to count
 
-
-Still to do:
-
 As a person with a lot of tasks
 I want to be able to filter my tasks by "All", "Active", "Complete"
 So that I only see the relevant tasks
@@ -46,7 +43,7 @@ So I never see them again
 
 ## Tech Used
 
-Written in Javascript and AngularJS, and tested in Jasmine and Protractor.
+Written in Javascript with AngularJS and a bit of JQuery, and tested in Jasmine and Protractor.
 
 ## Running the App Locally
 
@@ -56,6 +53,8 @@ Navigate to any folder and in the command line:
 $ git clone https://github.com/ashleigh090990/to-do
 
 $ cd to-do
+
+$ git checkout restart
 
 $ npm install
 

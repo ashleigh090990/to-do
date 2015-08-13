@@ -10,6 +10,8 @@ module.exports = function(config) {
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-resource/angular-resource.js',
       'bower_components/angular-mocks/angular-mocks.js',
+      'bower_components/jquery/dist/jquery.js',
+      'bower_components/jquery-ui/jquery-ui.min.js',
       'js/**/*.js',
       'test/**/*.spec.js'
     ],
