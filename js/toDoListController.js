@@ -10,27 +10,29 @@ toDoList.controller('ToDoListController', [function(){
   };
 
   self.updateTasksInLocalStorage = function() {
-      var allIncompleteTasks = [];
-      var allCompleteTasks = [];
-      for (var i=0; i<self.listTasks.length; i++) {
-        allIncompleteTasks.push(self.listTasks[i].task);
-      };
-      for (var i=0; i<self.completedTasks.length; i++) {
-        allCompleteTasks.push(self.completedTasks[i].task);
-      };
-      localStorage.setItem("allIncompleteTasks", allIncompleteTasks);
-      localStorage.setItem("allCompleteTasks", allCompleteTasks);
+    self.updateIncompleteAndCompleteTasksInLS(self.listTasks, "allIncompleteTasks");
+    self.updateIncompleteAndCompleteTasksInLS(self.completedTasks, "allCompleteTasks");
+  };
+
+  self.updateIncompleteAndCompleteTasksInLS = function(nameOfTaskList, nameOfLocalStorageList) {
+    var allIncompleteTasks = [];
+    for (var i=0; i<nameOfTaskList.length; i++) {
+      allIncompleteTasks.push(nameOfTaskList[i].task);
+    };
+    localStorage.setItem(nameOfLocalStorageList, allIncompleteTasks);
   };
 
   self.retrieveTasksFromLocalStorage = function() {
-    if ((localStorage.allIncompleteTasks.length > 0) || (localStorage.allCompleteTasks.length > 0)) {
-      var previousIncompleteTasks = localStorage.allIncompleteTasks.split(",");
-      var previousCompleteTasks = localStorage.allCompleteTasks.split(",");
-      for (var i=0; i<previousIncompleteTasks.length; i++) {
-        self.listTasks.push({'task': previousIncompleteTasks[i], 'isChecked': false});
-      };
-      for (var i=0; i<previousCompleteTasks.length; i++) {
-        self.completedTasks.push({'task': previousCompleteTasks[i], 'isChecked': false});
+    self.retrieveIncompleteAndCompleteFromLS(localStorage.allIncompleteTasks, self.listTasks);
+    self.retrieveIncompleteAndCompleteFromLS(localStorage.allCompleteTasks, self.completedTasks);
+  };
+
+
+  self.retrieveIncompleteAndCompleteFromLS = function(nameOfLocalStorageList, nameOfTaskList) {
+    if ((nameOfLocalStorageList.length > 0)) {
+      var previousTasks = nameOfLocalStorageList.split(",");
+      for (var i=0; i<previousTasks.length; i++) {
+        nameOfTaskList.push({'task': previousTasks[i], 'isChecked': false});
       };
     };
   };
