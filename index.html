@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="ToDoList">
+<html lang="en" ng-app="ToDoList" ng-controller="ToDoListController as ctrl">
   <head>
     <meta charset="utf-8">
     <title>toDoList</title>
@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="public/todostyle.css">
   </head>
 
-  <body ng-controller="ToDoListController as ctrl">
-    <div>
+  <body ng-init="ctrl.retrieveTasksFromLocalStorage()">
+    <div on>
 
       <img class="toDoImg" src="public/todolist.png">
 
@@ -26,10 +26,6 @@
         <button class="viewTaskListButtons" id="viewCompletedTasks" ng-click="tab = 'completedTasks'" ng-class="{true:'active', false:'inactive'}[tab == 'completedTasks']">toDids</button>
 
         <div class="taskList" id="taskList">
-
-          <div id="testLOCALstorage">
-            PLACEHOLDER
-          </div>
 
           <table ng-repeat="eachTask in ctrl.listTasks" ng-show="tab === 'incompleteTasks'">
             <tr id="allTasks">

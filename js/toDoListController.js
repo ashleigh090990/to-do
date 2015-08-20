@@ -5,22 +5,43 @@ toDoList.controller('ToDoListController', [function(){
   self.listTasks = [];
 
   self.addTask = function() {
-    self.listTasks.push({ 'task': self.newTask, 'isChecked': false});
+    self.listTasks.push({'task': self.newTask, 'isChecked': false});
     self.newTask = '';    
   };
 
   self.addTasksToLocalStorage = function() {
-      var allTasks = [];
+      var allIncompleteTasks = [];
+      var allCompleteTasks = [];
       for (var i=0; i<self.listTasks.length; i++) {
-        allTasks.push(self.listTasks[i].task);
+        allIncompleteTasks.push(self.listTasks[i].task);
       };
       for (var i=0; i<self.completedTasks.length; i++) {
-        allTasks.push(self.completedTasks[i].task);
+        allCompleteTasks.push(self.completedTasks[i].task);
       };
-      localStorage.setItem("allTasks", allTasks);
-      console.log("Hello");
-      console.log(allTasks);
+      localStorage.setItem("allIncompleteTasks", allIncompleteTasks);
+      localStorage.setItem("allCompleteTasks", allCompleteTasks);
   };
+
+
+
+
+
+  self.retrieveTasksFromLocalStorage = function() {
+    if ((localStorage.allIncompleteTasks.length > 0) || (localStorage.allCompleteTasks.length > 0)) {
+      var previousIncompleteTasks = localStorage.allIncompleteTasks.split(",");
+      var previousCompleteTasks = localStorage.allCompleteTasks.split(",");
+      for (var i=0; i<previousIncompleteTasks.length; i++) {
+        self.listTasks.push({'task': previousIncompleteTasks[i], 'isChecked': false});
+      };
+      for (var i=0; i<previousCompleteTasks.length; i++) {
+        self.completedTasks.push({'task': previousCompleteTasks[i], 'isChecked': false});
+      };
+    };
+  };
+
+
+
+
 
   self.clearAllChecked = function(){
     self.clearCheckedIncomplete();
@@ -38,6 +59,10 @@ toDoList.controller('ToDoListController', [function(){
       return !task.isChecked;
     });
   };
+
+
+
+
 
   self.markCheckedAsComplete = function() {
     for (var i=0; i<self.listTasks.length; i++) {
