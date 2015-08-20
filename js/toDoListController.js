@@ -22,10 +22,6 @@ toDoList.controller('ToDoListController', [function(){
       console.log(allTasks);
   };
 
-  self.isChecked = function() {
-    self.listTasks.isChecked = true;
-  };
-
   self.clearAllChecked = function(){
     self.clearCheckedIncomplete();
     self.clearCheckedComplete();
@@ -44,13 +40,15 @@ toDoList.controller('ToDoListController', [function(){
   };
 
   self.markCheckedAsComplete = function() {
-    self.completedTasks = self.listTasks.filter(function(task){
-      return task.isChecked;
-    });
-    self.clearCheckedIncomplete();
-    self.completedTasks.filter(function(task){
-      task.isChecked = false;
-    });
+    for (var i=0; i<self.listTasks.length; i++) {
+      if (self.listTasks[i].isChecked = true) {
+        self.completedTasks.push(self.listTasks[i]);
+        self.clearCheckedIncomplete();
+      };
+    };
+    for (var i=0; i<self.completedTasks.length; i++) {
+      self.completedTasks[i].isChecked = false;
+    };
   };
 
 }]);
