@@ -6,7 +6,7 @@ toDoList.controller('ToDoListController', [function(){
 
   self.addTask = function() {
     self.listTasks.push({ 'task': self.newTask, 'isChecked': false});
-    self.newTask = '';
+    self.newTask = '';    
   };
 
   self.isChecked = function() {
