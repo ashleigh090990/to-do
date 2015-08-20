@@ -18,7 +18,7 @@
 
         <form>
           <input class="inputBox" id="newTaskId" ng-model="ctrl.newTask" type="text" placeholder="Add toDo">
-          <button class="button" ng-click="ctrl.addTask()" id="addTaskId">Add toDo</button>
+          <button class="button" ng-click="ctrl.addTask(); ctrl.addTasksToLocalStorage()" id="addTaskId">Add toDo</button>
         </form>
 
         <button class="viewTaskListButtons" id="viewIncompleteTasks" ng-init="tab = tab === 'incompleteTasks' ? null: 'incompleteTasks'" ng-click="tab = 'incompleteTasks'" ng-class="{true:'active', false:'inactive'}[tab == 'incompleteTasks']">toDos</button>
@@ -53,8 +53,8 @@
         </div>
 
         <span>
-          <button class="markAsComplete button" id="checkedItemsAreComplete" ng-click="ctrl.markCheckedAsComplete()">Mark as Complete</button>
-          <button class="button" id="deleteCheckedItems" ng-click="ctrl.clearAllChecked()">Delete</button>
+          <button class="markAsComplete button" id="checkedItemsAreComplete" ng-click="ctrl.markCheckedAsComplete(); ctrl.addTasksToLocalStorage()">Mark as Complete</button>
+          <button class="button" id="deleteCheckedItems" ng-click="ctrl.clearAllChecked(); ctrl.addTasksToLocalStorage()">Delete</button>
         </span>
 
       </div>
@@ -77,26 +77,6 @@
           console.log(previousIncompleteTasks[0])
           document.getElementById('testLOCALstorage').innerHTML = previousIncompleteTasks[i];
         };
-
-        var addTasksToLocalStorage = function() { setTimeout( function() {
-          var allIncompleteTasks = [];
-          var allTableRows = document.getElementsByTagName('td');
-          for (var i=0; i<allTableRows.length; i++) {
-            if (allTableRows[i].classList.contains("eachTaskClass")) {
-              allIncompleteTasks.push(allTableRows[i].innerHTML);
-              localStorage.setItem("allIncompleteTasks", allIncompleteTasks);
-              console.log("Hello");
-              console.log(allIncompleteTasks);
-            };
-          };
-          }, 3000);
-        };
-
-        document.getElementById('addTaskId').onclick = function () {
-          addTasksToLocalStorage();
-        };
-
-        console.log(localStorage[0]);
 
       </script>
 

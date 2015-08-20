@@ -9,6 +9,19 @@ toDoList.controller('ToDoListController', [function(){
     self.newTask = '';    
   };
 
+  self.addTasksToLocalStorage = function() {
+      var allTasks = [];
+      for (var i=0; i<self.listTasks.length; i++) {
+        allTasks.push(self.listTasks[i].task);
+      };
+      for (var i=0; i<self.completedTasks.length; i++) {
+        allTasks.push(self.completedTasks[i].task);
+      };
+      localStorage.setItem("allTasks", allTasks);
+      console.log("Hello");
+      console.log(allTasks);
+  };
+
   self.isChecked = function() {
     self.listTasks.isChecked = true;
   };
