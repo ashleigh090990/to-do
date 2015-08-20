@@ -9,7 +9,7 @@ toDoList.controller('ToDoListController', [function(){
     self.newTask = '';    
   };
 
-  self.addTasksToLocalStorage = function() {
+  self.updateTasksInLocalStorage = function() {
       var allIncompleteTasks = [];
       var allCompleteTasks = [];
       for (var i=0; i<self.listTasks.length; i++) {
@@ -21,10 +21,6 @@ toDoList.controller('ToDoListController', [function(){
       localStorage.setItem("allIncompleteTasks", allIncompleteTasks);
       localStorage.setItem("allCompleteTasks", allCompleteTasks);
   };
-
-
-
-
 
   self.retrieveTasksFromLocalStorage = function() {
     if ((localStorage.allIncompleteTasks.length > 0) || (localStorage.allCompleteTasks.length > 0)) {
@@ -38,10 +34,6 @@ toDoList.controller('ToDoListController', [function(){
       };
     };
   };
-
-
-
-
 
   self.clearAllChecked = function(){
     self.clearCheckedIncomplete();
@@ -60,13 +52,9 @@ toDoList.controller('ToDoListController', [function(){
     });
   };
 
-
-
-
-
   self.markCheckedAsComplete = function() {
     for (var i=0; i<self.listTasks.length; i++) {
-      if (self.listTasks[i].isChecked = true) {
+      if (self.listTasks[i].isChecked === true) {
         self.completedTasks.push(self.listTasks[i]);
         self.clearCheckedIncomplete();
       };

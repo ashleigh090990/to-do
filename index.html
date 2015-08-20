@@ -18,7 +18,7 @@
 
         <form>
           <input class="inputBox" id="newTaskId" ng-model="ctrl.newTask" type="text" placeholder="Add toDo">
-          <button class="button" ng-click="ctrl.addTask(); ctrl.addTasksToLocalStorage()" id="addTaskId">Add toDo</button>
+          <button class="button" ng-click="ctrl.addTask(); ctrl.updateTasksInLocalStorage()" id="addTaskId">Add toDo</button>
         </form>
 
         <button class="viewTaskListButtons" id="viewIncompleteTasks" ng-init="tab = tab === 'incompleteTasks' ? null: 'incompleteTasks'" ng-click="tab = 'incompleteTasks'" ng-class="{true:'active', false:'inactive'}[tab == 'incompleteTasks']">toDos</button>
@@ -49,8 +49,8 @@
         </div>
 
         <span>
-          <button class="markAsComplete button" id="checkedItemsAreComplete" ng-click="ctrl.markCheckedAsComplete(); ctrl.addTasksToLocalStorage()">Mark as Complete</button>
-          <button class="button" id="deleteCheckedItems" ng-click="ctrl.clearAllChecked(); ctrl.addTasksToLocalStorage()">Delete</button>
+          <button class="markAsComplete button" id="checkedItemsAreComplete" ng-click="ctrl.markCheckedAsComplete(); ctrl.updateTasksInLocalStorage()">Mark as Complete</button>
+          <button class="button" id="deleteCheckedItems" ng-click="ctrl.clearAllChecked(); ctrl.updateTasksInLocalStorage()">Delete</button>
         </span>
 
       </div>
