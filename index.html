@@ -13,6 +13,7 @@
       <img class="toDoImg" src="public/todolist.png">
 
       <div class="everythingOnRight">
+
         <h1 id="header">toDoList</h1>
 
         <form>
@@ -21,30 +22,41 @@
         </form>
 
         <button class="viewTaskListButtons" id="viewIncompleteTasks" ng-init="tab = tab === 'incompleteTasks' ? null: 'incompleteTasks'" ng-click="tab = 'incompleteTasks'" ng-class="{true:'active', false:'inactive'}[tab == 'incompleteTasks']">toDos</button>
-        <button class="viewTaskListButtons" id="viewCompletedTasks" ng-click="tab = 'completedTasks'" ng-class="{true:'active', false:'inactive'}[tab == 'completedTasks']">toDids</button> 
+
+        <button class="viewTaskListButtons" id="viewCompletedTasks" ng-click="tab = 'completedTasks'" ng-class="{true:'active', false:'inactive'}[tab == 'completedTasks']">toDids</button>
+
         <div class="taskList" id="taskList">
+
+          <div id="testLOCALstorage">
+            PLACEHOLDER
+          </div>
+
           <table ng-repeat="eachTask in ctrl.listTasks" ng-show="tab === 'incompleteTasks'">
-            <tr>
+            <tr id="allTasks">
               <td class="eachTaskClass" id="eachTaskId">{{ eachTask.task }}</td>
               <td class="eachCheckboxRow"><input class="checkbox" ng-model="eachTask.isChecked" id="checked" type="checkbox"></input></td>
             </tr>
           </table>
           <table ng-repeat="eachCompletedTask in ctrl.completedTasks" ng-show="tab === 'completedTasks'">
-            <td class="eachTaskClass" id="eachTaskId">{{ eachCompletedTask.task }}</td>
+            <td class="eachTaskClass" id="eachCTaskId">{{ eachCompletedTask.task }}</td>
             <td class="eachCheckboxRow"><input class="checkbox" ng-model="eachCompletedTask.isChecked" id="checked" type="checkbox"></input></td>
           </table>
 
           <span class="taskCount" id="incompleteTaskCount" ng-show="tab === 'incompleteTasks'">
             You have {{ ctrl.listTasks.length }} toDos!
           </span>
+
           <span class="taskCount" id="completeTaskCount" ng-show="tab === 'completedTasks'">
             You have completed {{ ctrl.completedTasks.length }} toDos!
           </span>
+
         </div>
+
         <span>
           <button class="markAsComplete button" id="checkedItemsAreComplete" ng-click="ctrl.markCheckedAsComplete()">Mark as Complete</button>
           <button class="button" id="deleteCheckedItems" ng-click="ctrl.clearAllChecked()">Delete</button>
         </span>
+
       </div>
       
       <script src="bower_components/angular/angular.js"></script>
@@ -54,6 +66,34 @@
       <script src="js/app.js"></script>
       <script src="js/toDoListController.js"></script>
       <script type="text/javascript" src="js/jqueryStyle.js"></script>
+
+      <script type="text/javascript">
+
+      var previousIncompleteTasks = localStorage.allIncompleteTasks.split(",")
+
+      console.log(previousIncompleteTasks)
+
+      for (var i=0; i<previousIncompleteTasks.length; i++) {
+        console.log(previousIncompleteTasks[0])
+        document.getElementById('testLOCALstorage').innerHTML = previousIncompleteTasks[i];
+      };
+
+        document.getElementById('addTaskId').onclick = function () {
+          var allTableRows = document.getElementsByTagName('td');
+          var allIncompleteTasks = [];
+          for (var i=0; i<allTableRows.length; i++) {
+            if (allTableRows[i].classList.contains("eachTaskClass")) {
+              allIncompleteTasks.push(allTableRows[i].innerHTML);
+              localStorage.setItem("allIncompleteTasks", allIncompleteTasks);
+              console.log("Hello")
+              console.log(allIncompleteTasks)
+            }
+          }
+        };
+
+        console.log(localStorage[0])
+
+      </script>
 
     </div>
   </body>
