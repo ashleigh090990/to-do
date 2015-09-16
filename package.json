@@ -5,18 +5,15 @@
   "main": "server.js",
   "scripts": {
     "test": "karma start test/karma.conf.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/sanjsanj/todo_challenge.git"
   },
-  "author": "sanjsanj",
+  "author": "ashleigh090990",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/sanjsanj/todo_challenge/issues"
-  },
-  "homepage": "https://github.com/sanjsanj/todo_challenge",
   "devDependencies": {
     "bower": "^1.4.1",
     "grunt": "^0.4.5",
