@@ -6,11 +6,10 @@
   "scripts": {
     "test": "karma start test/karma.conf.js",
     "start": "node server.js",
-    "postinstall": "npm ./node_modules/bower/bin/bower install"
+    "postinstall": "node node_modules/bower/bin/bower install"
   },
   "repository": {
-    "type": "git",
-    "url": "https://github.com/sanjsanj/todo_challenge.git"
+    "type": "git"
   },
   "author": "ashleigh090990",
   "license": "ISC",
