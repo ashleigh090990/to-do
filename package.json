@@ -6,7 +6,7 @@
   "scripts": {
     "test": "karma start test/karma.conf.js",
     "start": "node server.js",
-    "postinstall": "node node_modules/bower/bin/bower install"
+    "postinstall": "bower install"
   },
   "repository": {
     "type": "git"
