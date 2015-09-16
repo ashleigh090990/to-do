@@ -14,7 +14,6 @@
   "author": "ashleigh090990",
   "license": "ISC",
   "devDependencies": {
-    "bower": "^1.4.1",
     "grunt": "^0.4.5",
     "grunt-contrib-jshint": "^0.11.2",
     "grunt-istanbul-coverage": "^0.1.1",
@@ -30,6 +29,7 @@
     "protractor": "^2.0.0"
   },
   "dependencies": {
+    "bower": "^1.4.1",
     "express": "^4.12.3",
     "http-server": "^0.8.0",
     "webdriver-manager": "^7.0.1"
